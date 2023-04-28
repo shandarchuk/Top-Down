@@ -29,8 +29,9 @@ public class Enemy : MonoBehaviour
 
         if(healt <= 0 )
         {
-            Instantiate(effect,transform.position,Quaternion.identity);
             Destroy(gameObject);
+            Instantiate(effect,transform.position,Quaternion.identity);
+            
         }
         healt -= damage;
     }

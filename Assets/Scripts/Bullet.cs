@@ -1,4 +1,4 @@
-using System.Collections;
+ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -12,6 +12,7 @@ public class Bullet : MonoBehaviour
     public LayerMask whatIsSolid; // слой цель
 
     public GameObject effect; // префаб эфекта частиц
+    [SerializeField] bool enemyBullet;
 
     private void Start()
     {
@@ -28,6 +29,12 @@ public class Bullet : MonoBehaviour
             {      
                 // наносим урон врагу
                 hitInfo.collider.GetComponent<Enemy>().TakeDamage(damage); 
+            }
+
+            if(hitInfo.collider.CompareTag("Player") && enemyBullet)
+            {      
+                // наносим урон врагу
+                hitInfo.collider.GetComponent<Player>().ChangeHealth(-damage); 
             }
             DestroyBullet();   
             
