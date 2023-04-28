@@ -43,6 +43,7 @@ public class Enemy : MonoBehaviour
         if(player.transform.position.x > transform.position.x)
         {
             transform.eulerAngles = new Vector3(0, 180, 0);
+            
         }
         else
         {
