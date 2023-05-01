@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Enemy : MonoBehaviour
 {
 
@@ -43,16 +44,19 @@ public class Enemy : MonoBehaviour
         // разворачиваем врага в сторону игрока
         if(player.transform.position.x > transform.position.x)
         {
-            transform.eulerAngles = new Vector3(0, 180, 0);
-            
+            transform.eulerAngles = new Vector3(0, 180, 0);    
         }
         else
         {
             transform.eulerAngles = new Vector3(0, 0, 0);   
         }
 
-        // двигаем врага в направлении игроку 
-        transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
+        float distance = Vector3.Distance(transform.position,player.transform.position);
+        if (distance > 2)
+        {
+            // двигаем врага в направлении игроку 
+            transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
+        }
     }
 
     public void OnTriggerStay2D(Collider2D other) 

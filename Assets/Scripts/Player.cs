@@ -19,12 +19,17 @@ public class Player : MonoBehaviour
     public GameObject shield; // щит
     public Shield shieldTimer; // таймер щита
 
+    [Header("Key")]
+    public GameObject keyIcon; // иконка ключа
+    public GameObject wallEffect; // эффект стены
+
+
     private Animator animator; // компонент аниматор
     private Rigidbody2D rigidbody2d;
     private Vector2 moveInput; // направление движения
     private Vector2 moveVelocity; // итоговоая скорость игрока
     private bool facingRight = true; // направление лица
-
+    private bool keyButtonPushed; // признак нажатия на иконку ключа
 
     void Start()
     {
@@ -113,7 +118,28 @@ public class Player : MonoBehaviour
                 shieldTimer.ResetTimer();
             }
             Destroy(other.gameObject);
-        }    
+        }  
+        else if(other.CompareTag("Key"))
+        {
+            keyIcon.SetActive(true);
+            Destroy(other.gameObject);
+        }  
+    }
+
+    public void onKeyButtonDown()
+    {
+        keyButtonPushed = !keyButtonPushed;
+    }
+
+    private void OnTriggerStay2D(Collider2D other) 
+    {
+    if (other.CompareTag("Door") && keyButtonPushed && keyIcon.activeInHierarchy)
+    {
+        //Instantiate(wallEffect, other.transform.position, Quaternion.identity);
+        keyIcon.SetActive(false);
+        other.gameObject.SetActive(false);
+        keyButtonPushed = false;
+    }    
     }
 
      

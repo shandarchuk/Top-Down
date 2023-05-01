@@ -7,6 +7,12 @@ TagManager:
   - Enemy
   - Potion
   - Shield
+  - Block
+  - Wall
+  - RoomPoint
+  - Rooms
+  - Key
+  - Door
   layers:
   - Default
   - TransparentFX

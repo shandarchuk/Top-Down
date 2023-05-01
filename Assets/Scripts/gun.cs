@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class gun : MonoBehaviour
+public class Gun : MonoBehaviour
 {
 
     public GunType gunType;
@@ -39,21 +39,16 @@ public class gun : MonoBehaviour
                 difference = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
                 rotationZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
             }
-
             else if (player.controlType == Player.ControlType.Android)
             {
-
                 rotationZ = Mathf.Atan2(joystick.Vertical, joystick.Horizontal) * Mathf.Rad2Deg;
             }
-
         }
-
         else if (gunType == GunType.Enemy)
         {
             difference = player.transform.position - transform.position;
             rotationZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;    
         }
-
 
         transform.rotation = Quaternion.Euler(0f,0f,rotationZ + offset);
 
@@ -74,7 +69,6 @@ public class gun : MonoBehaviour
         {
             timeBetwenShot -= Time.deltaTime;
         }
-
     }
 
     public void Shoot()
