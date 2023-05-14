@@ -9,20 +9,22 @@ public class Enemy : MonoBehaviour
     public int healt; // здоровье
     public float speed; // скорость
     private Animator animator; 
-
     private float timeBetwenAtack; // время перезарядки
     public float startTimeBetwenAtack; // количество секунду между ударами
-
+        
     private Player player; // игрок
-
     public int damage; //урон
-
     public GameObject effect; // эффект частиц при смерти
+    private AddRoom room;
+
+    [HideInInspector] public bool playerNotInRoom;
+    private bool stopped;
 
     void Start()
     {
         animator = GetComponent<Animator>();
         player = FindObjectOfType<Player>();
+        room = GetComponentInParent<AddRoom>();
     }
 
     public void TakeDamage(int damage)
@@ -32,7 +34,7 @@ public class Enemy : MonoBehaviour
         {
             Destroy(gameObject);
             Instantiate(effect,transform.position,Quaternion.identity);
-            
+            room.enemies.Remove(gameObject);
         }
         healt -= damage;
     }
@@ -40,6 +42,15 @@ public class Enemy : MonoBehaviour
     void Update()
     {
         animator.SetBool("isRunning", true);  
+
+        if(playerNotInRoom)
+        {
+            stopped = true;
+        }
+        else
+        {
+            stopped = false;
+        }
 
         // разворачиваем врага в сторону игрока
         if(player.transform.position.x > transform.position.x)
@@ -55,7 +66,10 @@ public class Enemy : MonoBehaviour
         if (distance > 2)
         {
             // двигаем врага в направлении игроку 
-            transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
+            if(!stopped)
+            {
+                transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
+            }
         }
     }
 

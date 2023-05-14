@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3966692906402561226}
   m_Layer: 0
   m_Name: Door
-  m_TagString: Wall
+  m_TagString: Door
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -133,6 +133,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: b87ef8f0ccbbf4f4c94d5d6b2a9aad31, type: 3}
+    - target: {fileID: 8982135156275316957, guid: 8738eea1295123545b4de65bd3ec663b, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8738eea1295123545b4de65bd3ec663b, type: 3}
 --- !u!4 &454179625182328233 stripped
@@ -211,6 +215,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: b87ef8f0ccbbf4f4c94d5d6b2a9aad31, type: 3}
+    - target: {fileID: 8982135156275316957, guid: 8738eea1295123545b4de65bd3ec663b, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8738eea1295123545b4de65bd3ec663b, type: 3}
 --- !u!4 &2332038013113800537 stripped
@@ -289,6 +297,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: b87ef8f0ccbbf4f4c94d5d6b2a9aad31, type: 3}
+    - target: {fileID: 8982135156275316957, guid: 8738eea1295123545b4de65bd3ec663b, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8738eea1295123545b4de65bd3ec663b, type: 3}
 --- !u!4 &3652802825872207678 stripped
@@ -367,6 +379,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: b87ef8f0ccbbf4f4c94d5d6b2a9aad31, type: 3}
+    - target: {fileID: 8982135156275316957, guid: 8738eea1295123545b4de65bd3ec663b, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8738eea1295123545b4de65bd3ec663b, type: 3}
 --- !u!4 &3652802827541580601 stripped
