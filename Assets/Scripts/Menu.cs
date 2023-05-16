@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -29,10 +27,19 @@ public class Menu : MonoBehaviour
         SceneManager.LoadScene("Menu");
     }
 
+    public void LoadGame()
+    {
+        // Получение ссылки на компонент DataManager
+        DataManager DataManager = FindObjectOfType<DataManager>();
+
+        // Вызов метода загрузки данных игрока
+        DataManager.LoadData();
+        SceneManager.LoadScene("GameScene");    
+    }
 
     public void NewGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene("GameScene"); 
     }
 
     public void ExitGame()

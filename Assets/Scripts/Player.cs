@@ -31,11 +31,37 @@ public class Player : MonoBehaviour
     private bool facingRight = true; // направление лица
     private bool keyButtonPushed; // признак нажатия на иконку ключа
 
+    //сохранение загрузка
+    private DataManager dataManager;
+    private float saveInterval = 6f; // Интервал сохранения в секундах
+    private float timer = 0f;
+
+    private DataStorage dataStorage;
+    //сохранение загрузка
+
+
     void Start()
     {
         rigidbody2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         ChangeHealth(0);
+
+        //сохранение загрузка
+        dataManager = FindObjectOfType<DataManager>();
+        LoadGame();
+        //сохранение загрузка
+    }
+
+    private void LoadGame()
+    {
+        // Получение ссылки на компонент dataStorage
+        DataStorage dataStorage = DataStorage.Instance;
+
+        health = dataStorage.health;
+        transform.position = dataStorage.position;
+
+        Camera cam = Camera.main.GetComponent<Camera>();
+        cam.transform.position += transform.position;
     }
 
     void Update()
@@ -76,7 +102,26 @@ public class Player : MonoBehaviour
     void FixedUpdate() 
     {
         // двигаем нашего игрока
-        rigidbody2d.MovePosition(rigidbody2d.position + moveVelocity * Time.fixedDeltaTime);     
+        rigidbody2d.MovePosition(rigidbody2d.position + moveVelocity * Time.fixedDeltaTime);
+
+
+        //сохранение
+        {
+        // Увеличение таймера
+        timer += Time.deltaTime;
+
+        // Если прошло достаточно времени для сохранения
+        if (timer >= saveInterval)
+        {
+            // Вызов метода сохранения данных игрока
+            dataManager.SaveData(health, transform.position);
+
+            // Сброс таймера
+            timer = 0f;
+        }
+        //сохранение
+    }
+
     }
 
     //разворот

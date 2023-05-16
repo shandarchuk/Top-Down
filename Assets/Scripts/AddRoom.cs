@@ -18,17 +18,14 @@ public class AddRoom : MonoBehaviour
     public GameObject shield;
     public GameObject healthPotion;
 
-
     [HideInInspector] public List<GameObject> enemies;
 
     private RoomVariants variants;
     private bool spawned;
     private bool wallsDestroyed;
 
-
-
     private void Awake()  
-    {
+    {   
         variants = GameObject.FindGameObjectWithTag("Rooms").GetComponent<RoomVariants>();
     }
 
@@ -84,7 +81,6 @@ public class AddRoom : MonoBehaviour
             }
         }    
     }
-
 
     IEnumerator ChekEnemies()
     {

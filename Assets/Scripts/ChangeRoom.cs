@@ -6,7 +6,7 @@ public class ChangeRoom : MonoBehaviour
 {
     public Vector3 playerChangePosition; // изменение позиции игрока
     public Vector3 cameraChangePosition; // изменение позиции камеры 
-     Camera cam; // камера
+    Camera cam; // камера
     
     void Start()
     {

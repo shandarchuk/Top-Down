@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class RoomSpawner : MonoBehaviour
@@ -37,14 +35,14 @@ public class RoomSpawner : MonoBehaviour
             if(direction == Direction.Top)
             {
                 // получаем рандомную комнату из массива комнат top
-                rand = Random.RandomRange(0,variants.topRooms.Length);
+                rand = Random.Range(0,variants.topRooms.Length);
                 // создаем комнату в точке спавна
                 Instantiate(variants.topRooms[rand], transform.position, variants.topRooms[rand].transform.rotation);    
             }
             else if(direction == Direction.Bottom)
             {
                 // получаем рандомную комнату из массива комнат bottom
-                rand = Random.RandomRange(0,variants.bottomRooms.Length);
+                rand = Random.Range(0,variants.bottomRooms.Length);
                 // создаем комнату в точке спавна
                 Instantiate(variants.bottomRooms[rand], transform.position, variants.bottomRooms[rand].transform.rotation);    
             }
@@ -52,7 +50,7 @@ public class RoomSpawner : MonoBehaviour
             else if(direction == Direction.Left)
             {
                 // получаем рандомную комнату из массива комнат left
-                rand = Random.RandomRange(0,variants.leftRooms.Length);
+                rand = Random.Range(0,variants.leftRooms.Length);
                 // создаем комнату в точке спавна
                 Instantiate(variants.leftRooms[rand], transform.position, variants.leftRooms[rand].transform.rotation);    
             }
@@ -60,7 +58,7 @@ public class RoomSpawner : MonoBehaviour
             else if(direction == Direction.Right)
             {
                 // получаем рандомную комнату из массива комнат right
-                rand = Random.RandomRange(0,variants.rightRooms.Length);
+                rand = Random.Range(0,variants.rightRooms.Length);
                 // создаем комнату в точке спавна
                 Instantiate(variants.rightRooms[rand], transform.position, variants.rightRooms[rand].transform.rotation);    
             }

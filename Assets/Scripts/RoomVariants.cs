@@ -22,12 +22,13 @@ public class RoomVariants : MonoBehaviour
     IEnumerator RandomSpawner()
     {
         yield return new WaitForSeconds(5f);
+
         AddRoom lastRoom = rooms[rooms.Count - 1].GetComponent<AddRoom>();
         int Rand = Random.Range(0, rooms.Count - 2);
 
         Instantiate(key,rooms[Rand].transform.position, Quaternion.identity);
 
-        lastRoom.door.SetActive(true);
-        lastRoom.DestroyWalls();
+        //lastRoom.door.SetActive(true);
+        //lastRoom.DestroyWalls();
     } 
 }
