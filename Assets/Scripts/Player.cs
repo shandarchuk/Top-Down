@@ -12,7 +12,7 @@ public class Player : MonoBehaviour
     public enum ControlType{PC, Android} // варианты управления
 
     [Header("Health")]
-    public int health; // здоровье
+    public PlayerData playerData;
     public Text healthDisplay; // текст здоровья
 
     [Header("Shield")]
@@ -57,7 +57,7 @@ public class Player : MonoBehaviour
         // Получение ссылки на компонент dataStorage
         DataStorage dataStorage = DataStorage.Instance;
 
-        health = dataStorage.health;
+        playerData.health = dataStorage.health;
         transform.position = dataStorage.position;
 
         Camera cam = Camera.main.GetComponent<Camera>();
@@ -114,7 +114,7 @@ public class Player : MonoBehaviour
         if (timer >= saveInterval)
         {
             // Вызов метода сохранения данных игрока
-            dataManager.SaveData(health, transform.position);
+            dataManager.SaveData(playerData.health, transform.position);
 
             // Сброс таймера
             timer = 0f;
@@ -138,8 +138,8 @@ public class Player : MonoBehaviour
     {
         if(!shield.activeInHierarchy || shield.activeInHierarchy && healthValue > 0)
         {
-            health += healthValue;
-            healthDisplay.text = "HP: " + health;
+            playerData.health += healthValue;
+            healthDisplay.text = "HP: " + playerData.health;
         }
      }
 

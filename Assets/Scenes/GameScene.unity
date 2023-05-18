@@ -1800,7 +1800,7 @@ MonoBehaviour:
   controlType: 0
   joystick: {fileID: 2095365205}
   speed: 8
-  health: 5
+  playerData: {fileID: 11400000, guid: 743192de1b714094cb54d94381ed08da, type: 2}
   healthDisplay: {fileID: 276134059}
   shield: {fileID: 1841381917}
   shieldTimer: {fileID: 825469145}
